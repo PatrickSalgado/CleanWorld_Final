@@ -1,6 +1,8 @@
+require("dotenv").config();
 const loginService = require("../service/loginService.js");
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
+
+console.log("JWT_SECRET =>", process.env.JWT_SECRET);
 const JWT_SECRET = process.env.JWT_SECRET;
 
 async function validateLogin(req, res) {
