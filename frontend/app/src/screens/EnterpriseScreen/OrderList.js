@@ -71,7 +71,7 @@ export default function OrderList() {
 
       console.log("Dados enviados na requisição PUT:", payload);
 
-      await axios.put(`https://4369-191-253-127-109.ngrok-free.app/api/registerOrder/${orderId}`, payload);
+      await axios.put(`https://36969c99d270.ngrok-free.app/api/registerOrder/${orderId}`, payload);
 
       Alert.alert("Pedido aceito", "Você aceitou o pedido com sucesso!");
 
