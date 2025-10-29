@@ -84,7 +84,7 @@ export default function RegisterEnterpriseTwo({ navigation, route }) {
     if (!validateFields()) return;
 
     try {
-      const response = await axios.post(`https://36969c99d270.ngrok-free.app/api/collector`, {
+      const response = await axios.post(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/collector`, {
         nameEnterprise,
         cnpj,
         phone,

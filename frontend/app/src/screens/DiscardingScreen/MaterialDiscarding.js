@@ -34,7 +34,7 @@ export default function MaterialDiscarding({ navigation }) {
     }
 
     try {
-      const response = await axios.post(`https://36969c99d270.ngrok-free.app/api/registerOrder`, {
+      const response = await axios.post(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/registerOrder`, {
         quantityVolume,
         volumeSize,
         collectionDate,
