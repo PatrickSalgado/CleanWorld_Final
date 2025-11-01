@@ -60,7 +60,7 @@ export default function RegisterVehicle({ navigation }) {
     };
 
     try {
-      await axios.post(`https://36969c99d270.ngrok-free.app/api/registerVehicle`, vehicleData);
+      await axios.post(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/registerVehicle`, vehicleData);
       Alert.alert('Sucesso', 'Veículo salvo com sucesso!', [
         {
           text: 'OK',

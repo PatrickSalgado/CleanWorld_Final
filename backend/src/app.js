@@ -7,7 +7,7 @@ const registerOrderRouter = require("./router/registerOrderRouter");
 const registerVehicleRouter = require("./router/registerVehicleRouter");
 const cors = require("cors");
 
-const port = 8000;
+const port = 8080;
 const app = express();
 
 app.use(cors());

@@ -13,7 +13,7 @@ export default function OrdenAccept() {
   const fetchRegisteredOrders = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`https://36969c99d270.ngrok-free.app/api/registerOrder/${idUser}/all`);
+      const response = await axios.get(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/registerOrder/${idUser}/all`);
       if (Array.isArray(response.data)) {
         setOrders(response.data);
       } else {

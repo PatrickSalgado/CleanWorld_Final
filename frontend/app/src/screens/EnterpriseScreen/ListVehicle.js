@@ -29,7 +29,7 @@ export default function ListVehicle() {
     }
 
     try {
-      const response = await axios.get(`https://36969c99d270.ngrok-free.app/api/registerVehicle`, {
+      const response = await axios.get(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/registerVehicle`, {
         params: { idCollector }
       });
       if (!Array.isArray(response.data)) {
@@ -89,7 +89,7 @@ export default function ListVehicle() {
     }
 
     try {
-      const response = await axios.put(`https://4369-191-253-127-109.ngrok-free.app/api/registerVehicle/${selectedVehicle.idRegisterVehicle}`, {
+      const response = await axios.put(`https://subattenuated-epithetically-eryn.ngrok-free.dev/api/registerVehicle/${selectedVehicle.idRegisterVehicle}`, {
         carBrand: updatedVehicle.carBrand,
         carModel: updatedVehicle.carModel || null,
         carLicensePlate: updatedVehicle.carLicensePlate,
