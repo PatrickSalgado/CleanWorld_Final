@@ -1,7 +1,7 @@
 const mysql = require("mysql2/promise");
 const databaseConfig = require("../config/database.js");
 
-async function applicationAssessmentTable() {
+async function applicationRateTable() {
 
     try {
         const connection = await mysql.createConnection(databaseConfig);
@@ -25,4 +25,4 @@ async function applicationAssessmentTable() {
     }
 };
 
-applicationAssessmentTable();
+applicationRateTable();

@@ -1,11 +1,11 @@
-const wasteType = require('../service/wasteTypeService.js');
+const companyWaste = require('../service/companyWasteService.js');
 const jwt = require("jsonwebtoken");
 require('dotenv').config();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-async function getAllWasteType(req, res) {
+async function getAllCompanyWaste(req, res) {
     try {
-        const rows = await wasteType.getAllWasteType();
+        const rows = await companyWaste.getAllCompanyWaste();
         res.status(200).json(rows);
     } catch (error) {
         res.status(500).send({
@@ -15,10 +15,10 @@ async function getAllWasteType(req, res) {
     }
 }
 
-async function createWasteType(req, res) {
-    const { id_tipo_residuo, descricao } = req.body;
+async function createCompanyWaste(req, res) {
+    const { id_empresa_coletora, id_tipo_residuo } = req.body;
     try {
-        await wasteType.createWasteType(id_tipo_residuo, descricao);
+        await companyWaste.createCompanyWaste(id_empresa_coletora, id_tipo_residuo);
         res.status(201).json({ message: "Sucess" });
     } catch (error) {
         res.status(500).send({
@@ -28,11 +28,12 @@ async function createWasteType(req, res) {
     }
 }
 
-async function updateWasteType(req, res) {
+async function updateCompanyWaste(req, res) {
     try {
-        const { id_tipo_residuo, descricao } = req.body;
+        const { id_empresa_coletora } = req.params;
+        const { id_tipo_residuo } = req.body;
 
-        await wasteType.updateWasteType(id_tipo_residuo, descricao);
+        await companyWaste.updateCompanyWaste(id_empresa_coletora, id_tipo_residuo);
 
         res.status(201).json({ message: "Sucess" });
     } catch (error) {
@@ -43,11 +44,11 @@ async function updateWasteType(req, res) {
     }
 }
 
-async function deleteWasteType(req, res) {
+async function deleteCompanyWaste(req, res) {
     try {
-        const { id_tipo_residuo } = req.params;
+        const { id_empresa_coletora  } = req.params;
 
-        await wasteType.deleteWasteType(id_tipo_residuo);
+        await companyWaste.deleteCompanyWaste(id_empresa_coletora );
 
         res.status(201).json({ message: "Sucess" });
     } catch (error) {
@@ -58,22 +59,22 @@ async function deleteWasteType(req, res) {
     }
 }
 
-async function getWasteTypeById(req, res) {
-    const { id_tipo_residuo } = req.params; // 🔥 Agora ela é visível no catch também
+async function getCompanyWasteById(req, res) {
+    const { id_empresa_coletora  } = req.params; // 🔥 Agora ela é visível no catch também
 
     try {
-        if (!id_tipo_residuo || isNaN(id_tipo_residuo)) {
+        if (!id_empresa_coletora  || isNaN(id_empresa_coletora )) {
             return res.status(400).json({ message: 'ID do residuo inválido' });
         }
 
-        const coletor = await wasteType.getWasteTypeById(id_tipo_residuo);
+        const coletor = await companyWaste.getCompanyWasteById(id_empresa_coletora );
         if (!coletor) {
             return res.status(404).json({ message: 'Residuo não encontrado' });
         }
 
         res.status(200).json([coletor]);
     } catch (error) {
-        console.error(`Erro ao buscar coletor ${id_tipo_residuo}:`, error); // ✅ Agora funciona
+        console.error(`Erro ao buscar coletor ${id_empresa_coletora }:`, error); // ✅ Agora funciona
         res.status(500).json({
             message: 'Erro ao buscar coletor',
             error: error.message,
@@ -82,9 +83,9 @@ async function getWasteTypeById(req, res) {
 }
 
 module.exports = {
-    getAllWasteType,
-    createWasteType,
-    updateWasteType,
-    deleteWasteType,
-    getWasteTypeById,
+    getAllCompanyWaste,
+    createCompanyWaste,
+    updateCompanyWaste,
+    deleteCompanyWaste,
+    getCompanyWasteById,
 }

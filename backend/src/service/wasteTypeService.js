@@ -15,8 +15,6 @@ async function getAllwasteType() {
 }
 
 async function createwasteType(id_tipo_residuo, descricao) {
-    const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash(password, salt);
     const connection = await mysql.createConnection(databaseConfig);
 
     const insertwasteType = "INSERT INTO tipo_residuo(id_tipo_residuo,descricao) values (?,?)";
@@ -26,8 +24,6 @@ async function createwasteType(id_tipo_residuo, descricao) {
 }
 
 async function updatewasteType(id_tipo_residuo, descricao) {
-    const salt = await bcrypt.genSalt(10);
-    const passwordHash = await bcrypt.hash(password, salt);
     const connection = await mysql.createConnection(databaseConfig);
 
     const updatewasteType = "UPDATE tipo_residuo SET id_tipo_residuo = ?, descricao= ? WHERE id_tipo_residuo = ?";
